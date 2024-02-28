@@ -6,8 +6,8 @@ export class App extends Component {
   render() {
     return (
       <div>
-        <Navbar/>
-        <News/>
+        <Navbar />
+        <News />
       </div>
     )
   }
