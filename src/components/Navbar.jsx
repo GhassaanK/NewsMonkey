@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 
 export class Navbar extends Component {
-  static propTypes = {}
+  // static propTypes = {}
 
   render() {
     return (
