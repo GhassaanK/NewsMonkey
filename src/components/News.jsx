@@ -277,15 +277,17 @@ export class News extends Component {
         <h2>Top Headlines</h2>
 
         <div className="row">
-          <div className="col-md-4">
-            <NewsItem imgUrl="https://ichef.bbci.co.uk/news/1024/branded_news/18206/production/_131922889_ace90c4a92ac8d3f6cb815fa951c317daeeef999.jpg" title="Hello" description="Hello Description" url="someurl"/>
-          </div>
-          <div className="col-md-4">
-            <NewsItem imgUrl="https://ichef.bbci.co.uk/news/1024/branded_news/18206/production/_131922889_ace90c4a92ac8d3f6cb815fa951c317daeeef999.jpg" title="Hello" description="Hello Description" url="someurl"/>
-          </div>
-          <div className="col-md-4">
-            <NewsItem imgUrl="https://ichef.bbci.co.uk/news/1024/branded_news/18206/production/_131922889_ace90c4a92ac8d3f6cb815fa951c317daeeef999.jpg" title="Hello" description="Hello Description" url="someurl"/>
-          </div>
+          {this.state.articles.map((element) => {
+            const truncatedTitle = element.title ? element.title.slice(0, 40) : "No title available";
+            const truncatedDescription = element.description ? element.description.slice(0, 50) : "No description available for this particular article";
+            const imageUrl = element.urlToImage ? element.urlToImage : 'https://www.cloudways.com/blog/wp-content/uploads/wordpress-404-error.jpg';
+
+            return (
+              <div className="col-md-4" key={element.url}>
+                <NewsItem imgUrl={imageUrl} title={truncatedTitle} description={truncatedDescription} url={element.url} />
+              </div>
+            );
+          })}
         </div>
 
       </div>
